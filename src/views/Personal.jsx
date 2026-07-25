@@ -1,59 +1,33 @@
-import React from 'react';
-import img1 from '../../public/images/mmc.webp';
-import img2 from '../../public/images/audit.webp';
-import img3 from '../../public/images/abprestige.webp';
+import data from '../assets/data/data.json';
+import React, { useState } from 'react';
+import ProxmoxCliSim from '../components/Cli'
+import Carrousel from '../components/Carrousel'
+import HomelabMedia from '../components/HomelabMedia'
+
+
+const listaProyectos = data.personales;
 
 export default function PersonalProjects() {
-  // Datos estructurados de los proyectos (puedes cambiar los links y textos fácilmente)
-  const listaProyectos = [
-    {
-      id: 1,
-      titulo: "Virtual Library System",
-      subtitulo: "Backend Architecture & Book Management",
-      descripcion: "Una plataforma integral para la gestión y auditoría de catálogos bibliotecarios virtuales. Implementa un motor de búsqueda indexado, control estricto de sesiones y transacciones concurrentes asegurando integridad absoluta en la base de datos.",
-      stack: ["PHP", "Nginx", "Git", "MySQL"],
-      linkProyecto: "https://magicmomentscases.site/", // Cambiar por tu despliegue o repo real
-      imagenUrl: img1, 
-    },
-    {
-      id: 2,
-      titulo: "Otto Service Automation",
-      subtitulo: "Infrastructure Background Service & LLM Integration",
-      descripcion: "Script de automatización en segundo plano diseñado para integrarse nativamente con modelos de lenguaje locales (LLMs). Cuenta con una interfaz mediante bots de Telegram para orquestar flujos de trabajo en servidores Linux y monitorear límites de tokens en tiempo real.",
-      stack: ["Python", "Telegram API", "Linux Services", "Local LLM"],
-      linkProyecto: "https://github.com/Franciscode7", 
-      imagenUrl: "https://images.unsplash.com/photo-1618401471353-b98aedd07871?q=80&w=1200&auto=format&fit=crop", 
-    },
-    {
-      id: 3,
-      titulo: "Audit Site",
-      subtitulo: "LXC Containerization & Local Network Lab",
-      descripcion: "Despliegue de un centro multimedia centralizado utilizando instancias de Jellyfin aisladas dentro de contenedores Proxmox (LXC). Configuración avanzada de mapeo de directorios en red local, permisos de almacenamiento y túneles seguros para acceso remoto eficiente.",
-      stack: ["Proxmox LXC", "Jellyfin", "Linux Admin", "Tailscale"],
-      linkProyecto: "https://github.com/Franciscode7", 
-      imagenUrl: img2, 
-    }
-  ];
 
   return (
-    <section id="proyectos" className="w-full bg-slate-950 text-slate-100 py-12">
+    <section id="proyectos" className="w-full bg-slate-950 text-slate-100 py-10">
       
       {/* Encabezado de la sección */}
-      <div className="max-w-6xl mx-auto px-6 mb-16">
-        <div className="flex items-center gap-3 mb-2 font-mono text-xs text-cyan-400">
+      <div className="max-w-6xl mx-auto px-6 mb-0">
+        <div className="flex items-center gap-3 mb-2 font-mono text-[14px] md:text-lg text-cyan-400">
           <span>02. // experiment_code</span>
           <div className="h-[1px] flex-1 bg-slate-800"></div>
         </div>
         <h2 className="text-3xl font-extrabold text-white tracking-tight">
           Proyectos personales y experimentales
         </h2>
-        <p className="text-sm text-slate-400 mt-1">
+        <p className="text-sm text-slate-400 my-1 md:mb-6">
           Desarrollos de software y experimentos que reflejan mi curiosidad técnica y capacidad de innovación.
         </p>
       </div>
 
       {/* Contenedor de bloques a lo largo de la pantalla */}
-      <div className="w-full space-y-24 md:space-y-36">
+      <div className="w-full space-y-0 md:space-y-8">
         {listaProyectos.map((proyecto, index) => {
           // Si el índice es impar, invertimos el orden visual en PC para dinamismo
           const esImpar = index % 2 !== 0;
@@ -61,48 +35,82 @@ export default function PersonalProjects() {
           return (
             <div 
               key={proyecto.id} 
-              className="w-full border-y border-slate-900 bg-slate-950/40 py-12"
+              className="w-full border-slate-900 bg-slate-950/40 py-4 pt-10 border-b"
             >
               <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center gap-8 md:gap-16">
                 
-                {/* Bloque Imagen (En PC alterna izq/der según el índice) */}
-                <div className={`w-full md:w-1/2 ${esImpar ? 'md:order-last' : ''}`}>
-                  <a 
-                    href={proyecto.linkProyecto} 
-                    target="_blank" 
-                    rel="noreferrer"
-                    className="block overflow-hidden rounded-xl border border-slate-800 bg-slate-900 group relative shadow-2xl transition-all duration-300 hover:border-emerald-500/50"
-                  >
-                    {/* Overlay de color sutil que desaparece al hacer hover */}
-                    <div className="absolute inset-0 bg-emerald-950/20 mix-blend-multiply transition-all duration-300 group-hover:opacity-0 z-10"></div>
-                    
-                    {/* Imagen del proyecto */}
-                    <img 
-                      src={proyecto.imagenUrl} 
-                      alt={proyecto.titulo}
-                      className="w-full h-[220px] sm:h-[300px] object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
+              <div className="w-full space-y-1 md:hidden">
+                <h3 className="text-2xl font-bold text-white text-center tracking-tight pb-2">
+                  {proyecto.titulo}
+                </h3>
+                <span className="text-xs font-mono text-emerald-400 block">{proyecto.subtitulo}</span>
+              </div> 
 
-                    {/* Badge flotante indicativo de click */}
-                    <div className="absolute bottom-3 right-3 z-20 px-2.5 py-1 bg-slate-950/80 backdrop-blur-md text-[10px] font-mono text-slate-300 border border-slate-800 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-1.5">
-                      <span>Visitar sitio</span>
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
-                    </div>
-                  </a>
-                </div>
+                {/* Bloque Imagen (En PC alterna izq/der según el índice) */}
+                {/* Bloque Imagen o CLI (En PC alterna izq/der según el índice) */}
+              <div className={`w-full md:w-1/2 ${esImpar ? 'md:order-last' : ''}`}>
+                  {proyecto.id === 2 ? (
+                  /* 1. CLI interactiva para el Homelab (ID 2) */
+                  <div className="overflow-hidden rounded-xl border border-slate-800 bg-slate-900 shadow-2xl transition-all duration-300 hover:border-emerald-500/50">
+                    <HomelabMedia 
+                      imagenes={proyecto.imagenUrl} // Arreglo de rutas en tu JSON
+                      titulo={proyecto.titulo}
+                      id={proyecto.id}
+                    />
+                  </div>
+                 
+                  ) : proyecto.id === 1 || proyecto.id === 4  ? (
+                      /* Renderizado de la CLI interactiva sin tag <a> alrededor para permitir clics */
+                      <div className="overflow-hidden rounded-xl border border-slate-800 bg-slate-900 shadow-2xl transition-all duration-300 hover:border-emerald-500/50">
+                          <Carrousel
+                            imagenes={proyecto.imagenUrl} // Arreglo de rutas en tu JSON
+                            titulo={proyecto.titulo}
+                            id={proyecto.id}
+                          />
+                      </div>
+                      
+                  ) : (
+                      /* Renderizado habitual para las imágenes normales */
+                      <a 
+                          href={proyecto.linkProyecto} 
+                          target="_blank" 
+                          rel="noreferrer"
+                          className="block overflow-hidden rounded-xl border border-slate-800 bg-slate-900 group relative shadow-2xl transition-all duration-300 hover:border-emerald-500/50"
+                      >
+
+                          {/* Overlay de color sutil que desaparece al hacer hover */}
+                          <div className="absolute inset-0 bg-emerald-950/20 mix-blend-multiply transition-all duration-300 group-hover:opacity-0 z-10"></div>
+                          
+                          {/* Imagen del proyecto */}
+                          <img 
+                              src={proyecto.imagenUrl} 
+                              alt={proyecto.titulo}
+                              className={`w-full h-[220px] sm:h-[320px] object-cover transition-transform duration-500 ${
+                              proyecto.id === 1 ? "group-hover:scale-115" : "group-hover:scale-105"
+                              }`}
+                          />
+
+                          <div className="absolute bottom-3 right-3 z-20 px-2.5 py-1 bg-slate-950/80 backdrop-blur-md text-[10px] font-mono text-slate-300 border border-slate-800 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-1.5">
+                              <span>{proyecto.id === 1 ? "Explorar repositorio" : "Visitar sitio"}</span>
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                              </svg>
+                          </div>
+                      </a>
+                  )}
+              </div>
 
                 {/* Bloque Contenido */}
                 <div className="w-full md:w-1/2 space-y-4">
-                  <div className="space-y-1">
-                    <span className="text-xs font-mono text-emerald-400 block">{proyecto.subtitulo}</span>
+                  <div className="w-full space-y-1 hidden md:block">
                     <h3 className="text-2xl font-bold text-white tracking-tight">
                       {proyecto.titulo}
                     </h3>
+                    <span className="text-xs font-mono text-emerald-400 block">{proyecto.subtitulo}</span>
+                    
                   </div>
 
-                  <p className="text-sm text-slate-400 leading-relaxed bg-slate-900/60 border border-slate-900 p-5 rounded-xl shadow-inner">
+                  <p className="text-sm text-justify text-slate-400 leading-relaxed bg-slate-900/60 border border-slate-900 p-5 rounded-xl shadow-inner">
                     {proyecto.descripcion}
                   </p>
 
@@ -121,12 +129,12 @@ export default function PersonalProjects() {
                   {/* Enlace secundario en texto por accesibilidad */}
                   <div className="pt-2">
                     <a 
-                      href={proyecto.linkProyecto}
+                      href={proyecto.fuente}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs font-mono text-slate-400 hover:text-emerald-400 transition-colors"
+                      className="inline-flex items-center gap-1.5 text-s font-mono text-slate-400 hover:text-emerald-400 transition-colors"
                     >
-                      <span>Explore codebase</span>
+                      <span>{proyecto.id === 2}Explorar repositorio</span>
                       <span>→</span>
                     </a>
                   </div>

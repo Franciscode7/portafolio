@@ -1,53 +1,23 @@
 import React from 'react';
-import img1 from '../../public/images/mmc.webp';
-import img2 from '../../public/images/audit.webp';
-import img3 from '../../public/images/abprestige.webp';
+import data from '../assets/data/data.json';
+
+
+const listaProyectos = data.proyectos;
 
 export default function PersonalProjects() {
-  // Datos estructurados de los proyectos (puedes cambiar los links y textos fácilmente)
-  const listaProyectos = [
-    {
-      id: 1,
-      titulo: "Magic Moments Cases - Sitio web oficial",
-      subtitulo: "Backend Architecture & Book Management",
-      descripcion: "Una plataforma integral para la gestión y auditoría de catálogos bibliotecarios virtuales. Implementa un motor de búsqueda indexado, control estricto de sesiones y transacciones concurrentes asegurando integridad absoluta en la base de datos.",
-      stack: ["PHP", "Nginx", "Git", "MySQL"],
-      linkProyecto: "https://magicmomentscases.site/", // Cambiar por tu despliegue o repo real
-      imagenUrl: img1, 
-    },
-    {
-      id: 2,
-      titulo: "Sistema de auditorias intregrales (En desarrollo)",
-      subtitulo: "Infrastructure Background Service & LLM Integration",
-      descripcion: "Script de automatización en segundo plano diseñado para integrarse nativamente con modelos de lenguaje locales (LLMs). Cuenta con una interfaz mediante bots de Telegram para orquestar flujos de trabajo en servidores Linux y monitorear límites de tokens en tiempo real.",
-      stack: ["Python", "Telegram API", "Linux Services", "Local LLM"],
-      linkProyecto: "https://github.com/Franciscode7", 
-      imagenUrl: img2, 
-    },
-    {
-      id: 3,
-      titulo: "A&B Prestige (En desarrollo)",
-      subtitulo: "LXC Containerization & Local Network Lab",
-      descripcion: "Despliegue de un centro multimedia centralizado utilizando instancias de Jellyfin aisladas dentro de contenedores Proxmox (LXC). Configuración avanzada de mapeo de directorios en red local, permisos de almacenamiento y túneles seguros para acceso remoto eficiente.",
-      stack: ["Proxmox LXC", "Jellyfin", "Linux Admin", "Tailscale"],
-      linkProyecto: "https://github.com/Franciscode7", 
-      imagenUrl: img3, 
-    }
-  ];
-
   return (
-    <section id="proyectos" className="w-full bg-slate-950 text-slate-100 py-12 pt-0">
+    <section id="proyectos" className="w-full bg-slate-950 text-slate-100 py-10 pt-14">
       
       {/* Encabezado de la sección */}
       <div className="max-w-6xl mx-auto px-6 mb-0">
-        <div className="flex items-center gap-3 mb-2 font-mono text-xs text-cyan-400">
-          <span>01. // production_code</span>
+        <div className="flex items-center gap-3 mb-2 font-mono text-[14px] md:text-lg text-cyan-400">
+          <span>01. // production_codeoo</span>
           <div className="h-[1px] flex-1 bg-slate-800"></div>
         </div>
         <h2 className="text-3xl font-bold text-white tracking-tight">
           Proyectos Destacados
         </h2>
-        <p className="text-sm text-slate-400 mt-1">
+        <p className="text-sm text-slate-400 my-1 md:mb-6">
           Soluciones de software e implementaciones a la medida.
         </p>
       </div>
@@ -61,16 +31,16 @@ export default function PersonalProjects() {
           return (
             <div 
               key={proyecto.id} 
-              className="w-full border-y border-slate-900 bg-slate-950/40 py-12"
+              className="w-full border-slate-900 bg-slate-950/40 py-4 pt-10 border-b"
             >
               <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center gap-8 md:gap-16">
                 
 
                 <div className="w-full space-y-1 md:hidden">
-                    <span className="text-xs font-mono text-emerald-400 block">{proyecto.subtitulo}</span>
-                    <h3 className="text-2xl font-bold text-white tracking-tight">
+                    <h3 className="text-2xl font-bold text-white text-center tracking-tight pb-2">
                       {proyecto.titulo}
                     </h3>
+                    <span className="text-xs font-mono text-emerald-400 block">{proyecto.subtitulo}</span>
                 </div>
 
                 {/* Bloque Imagen (En PC alterna izq/der según el índice) */}
@@ -88,7 +58,7 @@ export default function PersonalProjects() {
                     <img 
                       src={proyecto.imagenUrl} 
                       alt={proyecto.titulo}
-                      className="w-full h-[220px] sm:h-[300px] object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="w-full h-[220px] sm:h-[320px] object-cover transition-transform duration-500 group-hover:scale-105"
                     />
 
                     {/* Badge flotante indicativo de click */}
@@ -132,9 +102,9 @@ export default function PersonalProjects() {
                       href={proyecto.linkProyecto}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs font-mono text-slate-400 hover:text-emerald-400 transition-colors"
+                      className="inline-flex items-center gap-1.5 text-s font-mono text-slate-400 hover:text-emerald-400 transition-colors mt-6"
                     >
-                      <span>Explore codebase</span>
+                      <span>Explorar sitio</span>
                       <span>→</span>
                     </a>
                   </div>

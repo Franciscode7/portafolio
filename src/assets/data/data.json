@@ -1,0 +1,76 @@
+{
+  "personales": [
+    {
+    "id": 1,
+    "titulo": "Otto Assistant",
+    "subtitulo": "Asistente virtual conversacional y ejecutor de instrucciones locales",
+    "descripcion": "Asistente virtual desarrollado en Python con integración a Telegram, ejecutándose como un servicio persistente en Linux mediante systemd. El sistema recibe instrucciones en lenguaje natural, las procesa mediante un modelo de lenguaje (LLM) local o una API externa y ejecuta automáticamente los comandos correspondientes en una PC con Windows.",
+    "stack": ["Python", "Flask", "Deepseek API", "Linux", "Systemd", "Telegram Library", "LLM local", "Tailscale"],
+    "linkProyecto": "https://github.com/Franciscode7/otto",
+    "fuente": "https://github.com/Franciscode7/otto",
+    "imagenUrl": ["/images/otto.jpeg", "/images/chat-otto.png","/images/cli-otto.png"]
+    },
+    {
+    "id": 2,
+    "titulo": "Homelab Server",
+    "subtitulo": "Servidor de virtualización y orquestación de servicios locales",
+    "descripcion": "Infraestructura privada basada en Proxmox VE para el despliegue y aislamiento de servicios. Gestión de máquinas virtuales y contenedores LXC, monitoreo de recursos y red privada segura configurada con Tailscale para acceso remoto.",
+    "stack": ["Proxmox VE", "Linux", "Docker", "Tailscale", "LXC", "Networking"],
+    "linkProyecto": "https://github.com/Franciscode7/homelab-infra",
+    "fuente": "https://github.com/Franciscode7/homelab-infra",
+    "imagenUrl": ["/images/red.png","/images/interfaces.png","/images/firewall.png","/images/vpc.png"]
+    },
+    {
+    "id": 3,
+    "titulo": "Downloader Pro",
+    "subtitulo": "Aplicación web para descarga de contenido multimedia de la web",
+    "descripcion": "Herramienta web intuitiva orientada a la descarga rápida de audio y video online. Incluye opción directa para descargar el ejecutable independiente (.exe) para sistemas Windows.",
+    "stack": ["Python","Flask", "Flet", "HTML5", "CSS3", "Cloudflare Tunnel"],
+    "linkProyecto": "https://videodld.pacodevtest.site/",
+    "fuente": "https://github.com/Franciscode7/downloader_pro",
+    "imagenUrl": "/images/videodld.webp"
+    },
+    {
+      "id": 4,
+      "titulo": "Simulador y diseño de redes",
+      "subtitulo": "Entorno virtualizado de hardware, firewall, enrutamiento y segmentación VLAN",
+      "descripcion": "Laboratorio de diseño de red ejecutado en EVE-NG. Implementa un firewall pfSense para administración de tráfico, reglas de acceso, enrutamiento estático y aislamiento de redes locales mediante VLANs (Administración y Visitantes).",
+      "stack": ["pfSense", "EVE-NG", "VLANs", "Networking", "Linux", "Firewall"],
+      "linkProyecto": "https://github.com/Franciscode7/pfsense-network-lab",
+      "fuente": "https://github.com/Franciscode7/pfsense-network-lab",
+      "imagenUrl": ["/images/red.png","/images/interfaces.png","/images/firewall.png","/images/vpc.png"]
+    }
+  ],
+
+
+  "proyectos": [
+    {
+      "id": 1,
+      "titulo": "Magic Moments Cases",
+      "subtitulo": "Pagina web de presentacion y contacto para Magic Moments Cases",
+      "descripcion": "Página web de presentación comercial diseñada para fortalecer la presencia digital de la marca. Incluye secciones informativas, exhibición de productos, formulario de contacto y un flujo optimizado para facilitar la comunicación con clientes interesados y aumentar las oportunidades de venta.",
+      "stack": ["React", "HTML5", "CSS3", "DaysiUI", "Supabase" , "Vercel"],
+      "linkProyecto": "https://magicmomentscases.site/", 
+      "fuente": "https://github.com/Franciscode7/magic-cases",
+      "imagenUrl": "/images/mmc.webp"
+    },
+    {
+      "id": 2,
+      "titulo": "Sistema de auditorias intregrales (En desarrollo)",
+      "subtitulo": "Sistema web para la captura de auditorías en tiempo real",
+      "descripcion": "Plataforma para la gestión y ejecución de auditorías en tiempo real. Permite la recolección estructurada de datos mediante cuestionarios dinámicos, procesando las respuestas para generar reportes analíticos automáticos y visualizaciones gráficas del estado general del proceso.",
+      "stack": ["React", "HTML5", "CSS3", "JavaScript", "DaisyUI", "PostgreSQL", "Vercel"],
+      "linkProyecto": "https://audsw.vercel.app/", 
+      "imagenUrl": "/images/audit.webp"
+    },
+    {
+      "id": 3,
+      "titulo": "A&B Prestige (En desarrollo)",
+      "subtitulo": "Pagina web de presentacion y contacto para A&B Prestige",
+      "descripcion": "Landing page responsive desarrollada para la promoción de servicios profesionales, con una arquitectura optimizada para rendimiento, accesibilidad y navegación intuitiva, integrando formularios de contacto para la captación de prospectos.",
+      "stack": ["React", "HTML5", "CSS3", "DaysiUI", "Supabase" , "Vercel"],
+      "linkProyecto": "https://abprestige.vercel.app/", 
+      "imagenUrl": "/images/abprestige.webp"
+    }
+  ]
+}

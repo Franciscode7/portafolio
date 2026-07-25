@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Hero() {
   return (
-    <section className="relative w-full min-h-[70vh] flex items-center justify-center bg-slate-950 text-slate-100 px-6 py-16 border-b border-slate-800/60 overflow-hidden">
+    <section className="relative w-full min-h-[70vh] flex items-center justify-center bg-slate-950 text-slate-100 px-6 py-8 md:pt-10  border-slate-800/60 overflow-hidden">
       
       {/* Red de fondo decorativa (Sutil estilo Infraestructura) */}
       <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:24px_24px]"></div>
@@ -41,7 +41,9 @@ export default function Hero() {
           {/* Botones de Acción (Rígidos en colores oscuros) */}
           <div className="flex flex-wrap items-center justify-center md:justify-right gap-4 pt-2">
             <a 
-              href="/cv.pdf" 
+              href="/cv/Curriculum vitae - Francisco Javier Mendez Rodriguez.pdf"
+              target="_blank" 
+              rel="noreferrer" 
               download
               className="px-6 py-3 bg-slate-900 hover:bg-slate-800 text-slate-200 font-medium rounded-lg border border-slate-800 transition-all duration-200 flex items-center gap-2"
             >

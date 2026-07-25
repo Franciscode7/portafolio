@@ -17,14 +17,9 @@ export default function App() {
           <Route 
             path="/" 
             element={
-              <div className="space-y-20 pb-20">
+              <div className="space-y-0">
                 {/* Primer Bloque: Presentación y Conexiones */}
                 <Hero />
-                
-                {/* Los siguientes componentes se acoplarán aquí abajo limpiamente: */}
-                {/* <ProyectosSoftware /> */}
-                {/* <Infraestructura /> */}
-                {/* <Skills /> */}
                 <Projects />
                 <PersonalProjects />
               </div>
